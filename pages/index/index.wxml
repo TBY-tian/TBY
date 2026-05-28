@@ -1,0 +1,116 @@
+<view class="container">
+  <view class="banner-section">
+    <swiper indicator-dots autoplay interval="3000" circular class="banner-swiper">
+      <swiper-item>
+        <view class="banner-item banner-1">
+          <view class="banner-title">全民防诈 从我做起</view>
+          <view class="banner-subtitle">警惕电信诈骗 守护财产安全</view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="banner-item banner-2">
+          <view class="banner-title">96110 来电请接听</view>
+          <view class="banner-subtitle">全国反诈专用号码 预警劝阻</view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="banner-item banner-3">
+          <view class="banner-title">国家反诈中心APP</view>
+          <view class="banner-subtitle">官方反诈神器 请及时下载</view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class="entry-section">
+    <view class="entry-grid">
+      <view class="entry-item" bindtap="goToNews">
+        <view class="entry-icon icon-news">📚</view>
+        <view class="entry-text">骗局百科</view>
+      </view>
+      <view class="entry-item" bindtap="goToCheck">
+        <view class="entry-icon icon-check">🔍</view>
+        <view class="entry-text">风险识别</view>
+      </view>
+      <view class="entry-item" bindtap="goToTest">
+        <view class="entry-icon icon-test">📝</view>
+        <view class="entry-text">反诈测试</view>
+      </view>
+      <view class="entry-item" bindtap="goToReport">
+        <view class="entry-icon icon-report">📞</view>
+        <view class="entry-text">举报求助</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="warning-section">
+    <view class="card">
+      <view class="card-title">最新诈骗预警</view>
+      <view class="warning-list">
+        <view class="warning-item" wx:for="{{warnings}}" wx:key="id" bindtap="showWarningDetail" data-id="{{item.id}}">
+          <view class="warning-header">
+            <text class="warning-level level-{{item.level}}">{{item.level === 'high' ? '高危' : '中危'}}</text>
+            <text class="warning-arrow">›</text>
+          </view>
+          <view class="warning-title">{{item.title}}</view>
+          <view class="warning-content">{{item.content}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="modal-mask" wx:if="{{showModal}}" bindtap="hideModal">
+    <view class="modal-content" catchtap="stopPropagation">
+      <view class="modal-header">
+        <view class="modal-title">{{currentWarning.title}}</view>
+        <view class="modal-close" bindtap="hideModal">×</view>
+      </view>
+      <view class="modal-body">
+        <view class="modal-level">
+          <text class="level-tag level-{{currentWarning.level}}">{{currentWarning.level === 'high' ? '高危预警' : '中危预警'}}</text>
+          <text class="level-date">{{currentWarning.date}}</text>
+        </view>
+        <view class="modal-content-text">{{currentWarning.content}}</view>
+        <view class="detail-btn" bindtap="toggleDetail" wx:if="{{currentWarning.detail}}">
+          <text class="detail-btn-text">{{showDetail ? '收起说明' : '详细说明'}}</text>
+          <text class="detail-btn-arrow">{{showDetail ? '▼' : '▲'}}</text>
+        </view>
+        <view class="modal-detail" wx:if="{{showDetail && currentWarning.detail}}">
+          <view class="detail-title">详细说明</view>
+          <view class="detail-content">{{currentWarning.detail}}</view>
+        </view>
+        <view class="modal-source" wx:if="{{showDetail && currentWarning.sourceUrl}}">
+          <view class="source-title">来源链接</view>
+          <view class="source-link" bindtap="openUrl" data-url="{{currentWarning.sourceUrl}}">{{currentWarning.sourceUrl}}</view>
+        </view>
+      </view>
+      <view class="modal-footer">
+        <button class="btn-close" bindtap="hideModal">关闭</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="tips-section">
+    <view class="card">
+      <view class="card-title">防骗小贴士</view>
+      <view class="tips-list">
+        <view class="tip-item">
+          <text class="tip-icon">✓</text>
+          <text class="tip-text">不轻信陌生人电话和短信</text>
+        </view>
+        <view class="tip-item">
+          <text class="tip-icon">✓</text>
+          <text class="tip-text">不向陌生账户转账汇款</text>
+        </view>
+        <view class="tip-item">
+          <text class="tip-icon">✓</text>
+          <text class="tip-text">不透露个人银行信息和验证码</text>
+        </view>
+        <view class="tip-item">
+          <text class="tip-icon">✓</text>
+          <text class="tip-text">不点击陌生链接和下载未知APP</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,77 @@
+<view class="container">
+  <view class="header">
+    <view class="header-title">反诈小程序管理后台</view>
+    <view class="header-subtitle">数据管理 | 用户管理 | 内容管理</view>
+  </view>
+
+  <view class="stats-section">
+    <view class="stats-title">数据概览</view>
+    <view class="stats-grid">
+      <view class="stats-item">
+        <view class="stats-value">{{stats.totalUsers}}</view>
+        <view class="stats-label">用户总数</view>
+      </view>
+      <view class="stats-item">
+        <view class="stats-value">{{stats.totalCases}}</view>
+        <view class="stats-label">案例总数</view>
+      </view>
+      <view class="stats-item">
+        <view class="stats-value">{{stats.totalWarnings}}</view>
+        <view class="stats-label">预警总数</view>
+      </view>
+      <view class="stats-item">
+        <view class="stats-value">{{stats.pendingReports}}</view>
+        <view class="stats-label">待处理举报</view>
+      </view>
+    </view>
+    <view class="stats-grid">
+      <view class="stats-item">
+        <view class="stats-value">{{stats.todayUsers}}</view>
+        <view class="stats-label">今日新增用户</view>
+      </view>
+      <view class="stats-item">
+        <view class="stats-value">{{stats.todayReports}}</view>
+        <view class="stats-label">今日举报</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="menu-section">
+    <view class="menu-title">管理功能</view>
+    <view class="menu-grid">
+      <view class="menu-item" bindtap="goToUsers">
+        <view class="menu-icon">👥</view>
+        <view class="menu-text">用户管理</view>
+      </view>
+      <view class="menu-item" bindtap="goToReports">
+        <view class="menu-icon">📋</view>
+        <view class="menu-text">举报管理</view>
+        <view class="menu-badge" wx:if="{{stats.pendingReports > 0}}">{{stats.pendingReports}}</view>
+      </view>
+      <view class="menu-item" bindtap="goToCases">
+        <view class="menu-icon">📚</view>
+        <view class="menu-text">案例管理</view>
+      </view>
+      <view class="menu-item" bindtap="goToWarnings">
+        <view class="menu-icon">⚠️</view>
+        <view class="menu-text">预警管理</view>
+      </view>
+      <view class="menu-item" bindtap="goToQuestions">
+        <view class="menu-icon">❓</view>
+        <view class="menu-text">题库管理</view>
+      </view>
+      <view class="menu-item" bindtap="goToKeywords">
+        <view class="menu-icon">🔑</view>
+        <view class="menu-text">关键词库</view>
+      </view>
+      <view class="menu-item" bindtap="runCrawler">
+        <view class="menu-icon">🕷️</view>
+        <view class="menu-text">爬虫任务</view>
+      </view>
+      <view class="menu-item" bindtap="goToStats">
+        <view class="menu-icon">📊</view>
+        <view class="menu-text">数据统计</view>
+      </view>
+    </view>
+  </view>
+</view>

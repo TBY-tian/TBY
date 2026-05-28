@@ -1,0 +1,120 @@
+<view class="container">
+  <view class="header-section">
+    <view class="header-title">反诈测试</view>
+    <view class="header-subtitle">测试你的防骗能力</view>
+  </view>
+
+  <view wx:if="{{!showResult && !showFinish}}">
+    <view class="progress-section card">
+      <view class="progress-info">
+        <text class="progress-text">第 {{currentIndex + 1}} 题 / 共 {{totalQuestions}} 题</text>
+        <text class="progress-score">得分：{{score}} 分</text>
+      </view>
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{(currentIndex / totalQuestions) * 100}}%"></view>
+      </view>
+    </view>
+
+    <view class="question-section card">
+      <view class="question-type">
+        <text class="type-tag">判断题</text>
+      </view>
+      <view class="question-text">{{currentQuestion.question}}</view>
+
+      <view class="judge-options">
+        <view 
+          class="judge-item {{selectedAnswer === 'true' ? 'selected' : ''}} {{showExplanation && correctAnswer === '正确' ? 'correct' : ''}} {{showExplanation && selectedAnswer === 'true' && !currentCorrect ? 'wrong' : ''}}"
+          bindtap="selectOption"
+          data-label="true"
+        >
+          <view class="judge-icon">✓</view>
+          <view class="judge-text">正确</view>
+        </view>
+        <view 
+          class="judge-item {{selectedAnswer === 'false' ? 'selected' : ''}} {{showExplanation && correctAnswer === '错误' ? 'correct' : ''}} {{showExplanation && selectedAnswer === 'false' && !currentCorrect ? 'wrong' : ''}}"
+          bindtap="selectOption"
+          data-label="false"
+        >
+          <view class="judge-icon">✗</view>
+          <view class="judge-text">错误</view>
+        </view>
+      </view>
+
+      <view class="explanation-section" wx:if="{{showExplanation}}">
+        <view class="explanation-header {{currentCorrect ? 'correct' : 'wrong'}}">
+          <view class="explanation-icon">{{currentCorrect ? '🎉' : '😅'}}</view>
+          <view class="explanation-result">{{currentCorrect ? '回答正确！' : '回答错误'}}</view>
+        </view>
+        <view class="explanation-correct" wx:if="{{!currentCorrect}}">
+          <text class="correct-label">正确答案：</text>
+          <text class="correct-text">{{correctAnswer}}</text>
+        </view>
+        <view class="explanation-content">
+          <view class="explanation-title">解析：</view>
+          <view class="explanation-text">{{currentExplanation}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="action-section">
+      <button class="btn-submit" wx:if="{{!showExplanation}}" bindtap="submitAnswer" disabled="{{!selectedAnswer}}">
+        确认答案
+      </button>
+      <button class="btn-next" wx:if="{{showExplanation}}" bindtap="nextQuestion">
+        {{currentIndex === totalQuestions - 1 ? '查看结果' : '下一题'}}
+      </button>
+    </view>
+  </view>
+
+  <view wx:if="{{showFinish && !showResult}}">
+    <view class="loading-card card">
+      <view class="loading-icon">📊</view>
+      <view class="loading-text">正在统计成绩...</view>
+    </view>
+  </view>
+
+  <view wx:if="{{showResult}}">
+    <view class="result-section">
+      <view class="result-card card {{resultLevel}}">
+        <view class="result-header">
+          <view class="result-score">{{score}}</view>
+          <view class="result-total">满分 {{totalQuestions * 10}}</view>
+        </view>
+        <view class="result-level">{{resultLevelText}}</view>
+        <view class="result-message">{{resultMessage}}</view>
+      </view>
+
+      <view class="answer-review card">
+        <view class="card-title">答案解析</view>
+        <view class="review-list">
+          <view class="review-item {{item.correct ? 'correct' : 'wrong'}}" wx:for="{{answers}}" wx:key="id">
+            <view class="review-header">
+              <text class="review-num">第{{item.id}}题</text>
+              <text class="review-result">{{item.correct ? '✓ 正确' : '✗ 错误'}}</text>
+            </view>
+            <view class="review-question">{{item.question}}</view>
+            <view class="review-answer">你的答案：{{item.userAnswer}}</view>
+            <view class="review-correct" wx:if="{{!item.correct}}">正确答案：{{item.correctAnswer}}</view>
+            <view class="review-explanation">{{item.explanation}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="action-section">
+        <button class="btn-restart" bindtap="restartTest">重新测试</button>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{!showResult && !showFinish && currentIndex === 0 && score === 0 && !showExplanation}}">
+    <view class="start-tip card">
+      <view class="card-title">测试说明</view>
+      <view class="tip-content">
+        <view class="tip-item">• 共 {{totalQuestions}} 道判断题</view>
+        <view class="tip-item">• 每题 10 分</view>
+        <view class="tip-item">• 每题做完后可查看解析</view>
+        <view class="tip-item">• 请根据实际情况作答</view>
+      </view>
+    </view>
+  </view>
+</view>

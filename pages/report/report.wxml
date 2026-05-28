@@ -1,0 +1,152 @@
+<view class="container">
+  <view class="header-section">
+    <view class="header-title">举报求助</view>
+    <view class="header-subtitle">官方渠道 安全可靠</view>
+  </view>
+
+  <view class="emergency-section">
+    <view class="emergency-card card">
+      <view class="emergency-icon">🚨</view>
+      <view class="emergency-title">紧急求助</view>
+      <view class="emergency-desc">如遇诈骗正在发生，请立即拨打</view>
+      <button class="btn-emergency" bindtap="callPolice">拨打 110</button>
+    </view>
+  </view>
+
+  <view class="hotline-section">
+    <view class="card">
+      <view class="card-title">反诈热线</view>
+      <view class="hotline-list">
+        <view class="hotline-item" bindtap="call96110">
+          <view class="hotline-icon">📞</view>
+          <view class="hotline-info">
+            <view class="hotline-name">全国反诈热线</view>
+            <view class="hotline-number">96110</view>
+          </view>
+          <view class="hotline-action">点击拨打</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="report-section">
+    <view class="card">
+      <view class="card-title">我要举报</view>
+      <form bindsubmit="submitReport" class="report-form">
+        <view class="form-item">
+          <view class="form-label">举报类型</view>
+          <radio-group name="type" class="radio-group">
+            <label class="radio-label">
+              <radio value="phone" />电话诈骗
+            </label>
+            <label class="radio-label">
+              <radio value="link" />链接诈骗
+            </label>
+            <label class="radio-label">
+              <radio value="text" />话术诈骗
+            </label>
+            <label class="radio-label">
+              <radio value="other" />其他
+            </label>
+          </radio-group>
+        </view>
+        <view class="form-item">
+          <view class="form-label">举报内容</view>
+          <textarea name="content" class="textarea" placeholder="请详细描述诈骗信息，如：电话号码、内容等" maxlength="500" />
+        </view>
+        <view class="form-item">
+          <view class="form-label">补充信息（选填）</view>
+          <input name="detail" class="input" placeholder="可选：对方的其他联系方式、账号等" />
+        </view>
+        <view class="form-item">
+          <view class="form-label">联系方式（选填）</view>
+          <input name="contact" class="input" placeholder="可选：便于警方联系您" />
+        </view>
+        <button form-type="submit" class="btn-submit">提交举报</button>
+      </form>
+    </view>
+  </view>
+
+  <view class="official-section">
+    <view class="card">
+      <view class="card-title">官方反诈工具</view>
+      <view class="official-list">
+        <view class="official-item">
+          <view class="official-icon">📱</view>
+          <view class="official-info">
+            <view class="official-name">国家反诈中心APP</view>
+            <view class="official-desc">官方反诈神器，提供诈骗预警、举报、身份验真等功能</view>
+          </view>
+          <view class="official-action" bindtap="downloadApp">
+            <view class="action-btn">立即下载</view>
+          </view>
+        </view>
+        <view class="official-item">
+          <view class="official-icon">🔍</view>
+          <view class="official-info">
+            <view class="official-name">12321举报中心</view>
+            <view class="official-desc">举报垃圾短信、骚扰电话、诈骗电话等</view>
+          </view>
+          <view class="official-action" bindtap="open12321">
+            <view class="action-btn">访问网站</view>
+          </view>
+        </view>
+        <view class="official-item">
+          <view class="official-icon">🌐</view>
+          <view class="official-info">
+            <view class="official-name">网络违法犯罪举报网站</view>
+            <view class="official-desc">举报网络诈骗、钓鱼网站等违法犯罪行为</view>
+          </view>
+          <view class="official-action" bindtap="openCrimeReport">
+            <view class="action-btn">访问网站</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="tips-section">
+    <view class="card">
+      <view class="card-title">防骗要点</view>
+      <view class="tips-list">
+        <view class="tips-item">
+          <view class="tips-num">1</view>
+          <view class="tips-content">
+            <view class="tips-title">警惕陌生来电</view>
+            <view class="tips-text">不要轻信自称公检法、客服、熟人的陌生电话</view>
+          </view>
+        </view>
+        <view class="tips-item">
+          <view class="tips-num">2</view>
+          <view class="tips-content">
+            <view class="tips-title">保护个人信息</view>
+            <view class="tips-text">不向陌生人透露身份证号、银行卡号、验证码等信息</view>
+          </view>
+        </view>
+        <view class="tips-item">
+          <view class="tips-num">3</view>
+          <view class="tips-content">
+            <view class="tips-title">谨慎转账汇款</view>
+            <view class="tips-text">任何要求转账到"安全账户"的都是诈骗</view>
+          </view>
+        </view>
+        <view class="tips-item">
+          <view class="tips-num">4</view>
+          <view class="tips-content">
+            <view class="tips-title">及时报警求助</view>
+            <view class="tips-text">发现被骗要第一时间拨打110报警，越早报警越好</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="warning-section">
+    <view class="warning-card card">
+      <view class="warning-icon">⚠️</view>
+      <view class="warning-text">
+        <text>本小程序仅展示官方举报渠道，不会收集您的任何个人信息。请通过上述官方渠道举报诈骗行为。</text>
+      </view>
+    </view>
+  </view>
+</view>

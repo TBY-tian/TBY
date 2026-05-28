@@ -1,0 +1,311 @@
+.header-section {
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+  color: #fff;
+  padding: 40rpx 30rpx;
+  margin-bottom: 30rpx;
+  border-radius: 0 0 30rpx 30rpx;
+}
+
+.header-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+
+.header-subtitle {
+  font-size: 26rpx;
+  opacity: 0.9;
+}
+
+.emergency-section {
+  margin-bottom: 30rpx;
+}
+
+.emergency-card {
+  text-align: center;
+  padding: 50rpx;
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  border: 2rpx solid #ef5350;
+}
+
+.emergency-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.emergency-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #c62828;
+  margin-bottom: 12rpx;
+}
+
+.emergency-desc {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+
+.btn-emergency {
+  background-color: #d32f2f;
+  color: #fff;
+  border-radius: 50rpx;
+  padding: 28rpx 80rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-emergency:active {
+  opacity: 0.8;
+}
+
+.hotline-section {
+  margin-bottom: 30rpx;
+}
+
+.hotline-list {
+  margin-top: 20rpx;
+}
+
+.hotline-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  background-color: #f5f5f5;
+  border-radius: 12rpx;
+  margin-bottom: 16rpx;
+}
+
+.hotline-item:last-child {
+  margin-bottom: 0;
+}
+
+.hotline-icon {
+  font-size: 48rpx;
+  margin-right: 24rpx;
+}
+
+.hotline-info {
+  flex: 1;
+}
+
+.hotline-name {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+}
+
+.hotline-number {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #1a73e8;
+}
+
+.hotline-action {
+  font-size: 24rpx;
+  color: #1a73e8;
+  padding: 12rpx 24rpx;
+  background-color: #e3f2fd;
+  border-radius: 30rpx;
+}
+
+.report-section {
+  margin-bottom: 30rpx;
+}
+
+.report-form {
+  margin-top: 20rpx;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.form-label {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+  font-weight: 500;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #666;
+  padding: 12rpx 24rpx;
+  background-color: #f5f5f5;
+  border-radius: 8rpx;
+}
+
+.textarea {
+  width: 100%;
+  height: 200rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  background-color: #f5f5f5;
+  border-radius: 12rpx;
+  box-sizing: border-box;
+}
+
+.input {
+  width: 100%;
+  padding: 20rpx;
+  font-size: 28rpx;
+  background-color: #f5f5f5;
+  border-radius: 12rpx;
+  box-sizing: border-box;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 24rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
+  border-radius: 50rpx;
+  border: none;
+  margin-top: 20rpx;
+}
+
+.btn-submit:active {
+  opacity: 0.8;
+}
+
+.official-section {
+  margin-bottom: 30rpx;
+}
+
+.official-list {
+  margin-top: 20rpx;
+}
+
+.official-item {
+  display: flex;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.official-item:last-child {
+  border-bottom: none;
+}
+
+.official-icon {
+  font-size: 48rpx;
+  margin-right: 24rpx;
+}
+
+.official-info {
+  flex: 1;
+}
+
+.official-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.official-desc {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+.official-action {
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
+  font-size: 24rpx;
+  color: #fff;
+  background-color: #1a73e8;
+  padding: 14rpx 28rpx;
+  border-radius: 30rpx;
+}
+
+.action-btn:active {
+  opacity: 0.8;
+}
+
+.tips-section {
+  margin-bottom: 30rpx;
+}
+
+.tips-list {
+  margin-top: 20rpx;
+}
+
+.tips-item {
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.tips-item:last-child {
+  border-bottom: none;
+}
+
+.tips-num {
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a73e8;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 24rpx;
+  font-weight: 600;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.tips-content {
+  flex: 1;
+}
+
+.tips-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.tips-text {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+.warning-section {
+  margin-bottom: 30rpx;
+}
+
+.warning-card {
+  display: flex;
+  align-items: flex-start;
+  background-color: #fff3e0;
+  border: 2rpx solid #ff9800;
+}
+
+.warning-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+
+.warning-text {
+  flex: 1;
+  font-size: 24rpx;
+  color: #e65100;
+  line-height: 1.6;
+}

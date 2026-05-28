@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/news/news",
+    "pages/check/check",
+    "pages/test/test",
+    "pages/report/report",
+    "pages/admin/admin"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1a73e8",
+    "navigationBarTitleText": "预防电信诈骗",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#1a73e8",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "text": "骗局百科"
+      },
+      {
+        "pagePath": "pages/check/check",
+        "text": "风险识别"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text": "反诈测试"
+      },
+      {
+        "pagePath": "pages/report/report",
+        "text": "举报求助"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,12 @@
+{
+  "desc": "关于本项目以及如何使用的说明",
+  "setting": {
+    "urlCheck": false
+  },
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

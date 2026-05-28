@@ -1,0 +1,90 @@
+<view class="container">
+  <view class="header-section">
+    <view class="header-title">风险识别</view>
+    <view class="header-subtitle">输入可疑信息 智能识别风险</view>
+  </view>
+
+  <view class="check-section card">
+    <view class="check-tabs">
+      <view 
+        class="tab-item {{currentTab === 'number' ? 'active' : ''}}"
+        bindtap="switchTab"
+        data-tab="number"
+      >号码</view>
+      <view 
+        class="tab-item {{currentTab === 'link' ? 'active' : ''}}"
+        bindtap="switchTab"
+        data-tab="link"
+      >链接</view>
+      <view 
+        class="tab-item {{currentTab === 'text' ? 'active' : ''}}"
+        bindtap="switchTab"
+        data-tab="text"
+      >话术</view>
+    </view>
+
+    <view class="input-area">
+      <textarea 
+        class="input-textarea"
+        placeholder="{{inputPlaceholder}}"
+        value="{{inputValue}}"
+        bindinput="onInput"
+        maxlength="500"
+      ></textarea>
+      <view class="input-footer">
+        <text class="char-count">{{inputValue.length}}/500</text>
+      </view>
+    </view>
+
+    <button class="btn-check" bindtap="doCheck">立即检测</button>
+  </view>
+
+  <view class="result-section" wx:if="{{showResult}}">
+    <view class="result-card card {{resultLevel}}">
+      <view class="result-header">
+        <view class="result-icon">{{resultIcon}}</view>
+        <view class="result-status">{{resultStatus}}</view>
+      </view>
+      <view class="result-message">{{resultMessage}}</view>
+      
+      <view class="result-details" wx:if="{{matchedKeywords.length > 0}}">
+        <view class="detail-title">匹配到以下风险关键词：</view>
+        <view class="keyword-tags">
+          <text class="keyword-tag" wx:for="{{matchedKeywords}}" wx:key="*this">{{item}}</text>
+        </view>
+      </view>
+
+      <view class="result-tips">
+        <view class="tip-title">安全建议</view>
+        <view class="tip-item" wx:for="{{tips}}" wx:key="*this">• {{item}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="rules-section card">
+    <view class="card-title">检测规则说明</view>
+    <view class="rules-list">
+      <view class="rule-item">
+        <text class="rule-icon">📱</text>
+        <view class="rule-content">
+          <view class="rule-title">号码检测</view>
+          <view class="rule-desc">识别境外号码、虚拟号段等高风险号码</view>
+        </view>
+      </view>
+      <view class="rule-item">
+        <text class="rule-icon">🔗</text>
+        <view class="rule-content">
+          <view class="rule-title">链接检测</view>
+          <view class="rule-desc">检测非官方域名、非gov.cn链接</view>
+        </view>
+      </view>
+      <view class="rule-item">
+        <text class="rule-icon">💬</text>
+        <view class="rule-content">
+          <view class="rule-title">话术检测</view>
+          <view class="rule-desc">识别安全账户、刷单、返利、验证码等诈骗关键词</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
